@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Personal Portfolio</title>
+  <title>Joshua Washington — Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,82 +14,165 @@
   <!-- Navigation -->
   <header>
     <nav class="navbar">
-      <h1 class="logo">MyPortfolio</h1>
+      <a href="#" class="logo">&gt; joshua<span class="cursor-blink">_</span></a>
 
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">about</a></li>
+        <li><a href="#skills">skills</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#contact">contact</a></li>
       </ul>
     </nav>
   </header>
 
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-content">
-      <h2>Hello, I'm Joshua Washington</h2>
-      <p>Software Developer</p>
-      <a href="#projects" class="btn">View My Work</a>
+    <div class="hero-grid">
+      <div class="hero-content">
+        <p class="eyebrow">|&gt; software developer</p>
+        <h2>Joshua<br>Washington</h2>
+        <p class="hero-text">
+          I build reliable, full-stack web applications — from Phoenix
+          backends to the interfaces people actually use.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View my work</a>
+          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+        </div>
+      </div>
+
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal-bar">
+          <span class="dot dot-red"></span>
+          <span class="dot dot-yellow"></span>
+          <span class="dot dot-green"></span>
+          <span class="terminal-title">iex</span>
+        </div>
+        <div class="terminal-body">
+<pre><span class="t-prompt">iex&gt;</span> <span class="t-fn">Developer</span>.new(
+  name: <span class="t-str">"Joshua Washington"</span>,
+  role: <span class="t-str">"Software Developer"</span>
+)
+<span class="t-out">%Developer{
+  stack: [<span class="t-atom">:elixir</span>, <span class="t-atom">:phoenix</span>, <span class="t-atom">:postgres</span>, <span class="t-atom">:javascript</span>],
+  focus: <span class="t-str">"clean, reliable code"</span>,
+  status: <span class="t-atom">:available_for_work</span>
+}</span>
+<span class="t-prompt">iex&gt;</span> <span class="cursor-blink">_</span></pre>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- About -->
   <section id="about" class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a passionate web developer who enjoys building clean,
-      responsive, and user-friendly websites.
-    </p>
+    <p class="eyebrow">|&gt; about</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm a software developer with a passion for building modern, reliable,
+          and user-focused web applications. I enjoy transforming ideas into
+          practical solutions by writing clean, maintainable code and continuously
+          learning new technologies to improve my craft.
+        </p>
+        <p>
+          My primary expertise is in backend and full-stack web development,
+          with experience using technologies such as Elixir, Phoenix Framework,
+          PostgreSQL, JavaScript, HTML, CSS, and Tailwind CSS. I enjoy developing
+          applications that are secure, scalable, and deliver a seamless user
+          experience.
+        </p>
+        <p>
+          I believe great software is more than just functional — it should be
+          intuitive, efficient, and built with the user in mind. Whether I'm
+          developing a new feature, optimizing performance, or solving complex
+          technical challenges, I approach every project with attention to
+          detail and a commitment to quality.
+        </p>
+      </div>
+
+      <aside class="about-card">
+        <p class="about-card-label">%Profile{</p>
+        <ul>
+          <li><span>role:</span> "Software Developer"</li>
+          <li><span>focus:</span> "full-stack web"</li>
+          <li><span>based_in:</span> "Kenya"</li>
+          <li><span>open_to:</span> "new opportunities"</li>
+        </ul>
+        <p class="about-card-label">}</p>
+      </aside>
+    </div>
   </section>
 
   <!-- Skills -->
   <section id="skills" class="section">
-    <h2>Skills</h2>
+    <p class="eyebrow">|&gt; skills</p>
 
     <div class="skills-container">
-      <div class="skill-card">HTML</div>
-      <div class="skill-card">CSS</div>
-      <div class="skill-card">JavaScript</div>
-      <div class="skill-card">Elixir</div>
-      <div class="skill-card">Phoenix Framework</div>
+      <span class="skill-card">HTML</span>
+      <span class="skill-card">CSS</span>
+      <span class="skill-card">JavaScript</span>
+      <span class="skill-card">Elixir</span>
+      <span class="skill-card">Phoenix Framework</span>
+      <span class="skill-card">PostgreSQL</span>
+      <span class="skill-card">Tailwind CSS</span>
     </div>
   </section>
 
   <!-- Projects -->
   <section id="projects" class="section">
-    <h2>Projects</h2>
+    <p class="eyebrow">|&gt; projects</p>
 
     <div class="projects-container">
 
-      <div class="project-card">
-        <h3>Portfolio Website</h3>
-        <p>A responsive portfolio website built using HTML and CSS.</p>
-      </div>
+      <!--
+        To add a new project: copy one .project-card block below,
+        update the title, description, tags, and set href="" on the
+        link to point to the live site or repo.
+      -->
 
-      <div class="project-card">
-        <h3>Landing Page</h3>
-        <p>A modern landing page for a startup business.</p>
-      </div>
+      <article class="project-card">
+        <div class="project-card-top">
+          <h3>Portfolio Website</h3>
+          <p>A responsive portfolio website built using HTML and CSS.</p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span>
+          </div>
+        </div>
+        <a href="#" class="project-link">View project <span>&rarr;</span></a>
+      </article>
 
-      <div class="project-card">
-        <h3>Weather App</h3>
-        <p>A weather application using JavaScript APIs.</p>
-      </div>
+      <article class="project-card">
+        <div class="project-card-top">
+          <h3>Insurance Website</h3>
+          <p>Insurance/Investments web app</p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+        <a href="https://jackiecents.netlify.app" class="project-link">View project <span>&rarr;</span></a>
+      </article>
 
     </div>
   </section>
 
   <!-- Contact -->
   <section id="contact" class="section">
-    <h2>Contact</h2>
-    <p>Email:jaywashie5735@email.com</p>
+    <p class="eyebrow">|&gt; contact</p>
+    <h2 class="contact-heading">Let's build something.</h2>
+    <p class="contact-text">Have a project in mind or just want to say hello? My inbox is open.</p>
+    <a href="mailto:jaywashie5735@email.com" class="btn btn-primary">jaywashie5735@email.com</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2026 Joshua Washington. All Rights Reserved.</p>
+    <p>© 2026 Joshua Washington &nbsp;|&gt;&nbsp; Built with Elixir energy.</p>
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
