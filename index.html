@@ -16,8 +16,10 @@
     <nav class="navbar">
       <a href="#" class="logo">&gt; joshua<span class="cursor-blink">_</span></a>
 
-      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
       </button>
 
       <ul class="nav-links" id="navLinks">
@@ -27,6 +29,7 @@
         <li><a href="#contact">contact</a></li>
       </ul>
     </nav>
+    <div class="nav-backdrop" id="navBackdrop"></div>
   </header>
 
   <!-- Hero Section -->
@@ -41,7 +44,7 @@
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View my work</a>
-          <a href="#contact" class="btn btn-ghost">Get in touch</a>
+          <a href="#contact" class="btn btn-ghost">Bring business</a>
         </div>
       </div>
 
@@ -62,7 +65,6 @@
   focus: <span class="t-str">"clean, reliable code"</span>,
   status: <span class="t-atom">:available_for_work</span>
 }</span>
-<span class="t-prompt">iex&gt;</span> <span class="cursor-blink">_</span></pre>
         </div>
       </div>
     </div>
@@ -151,21 +153,10 @@
             <span>HTML</span><span>CSS</span><span>JavaScript</span>
           </div>
         </div>
-        <a href="https://github.com/Jaywashie/maa" class="project-link">View code <span>&rarr;</span></a>
+        <a href="https://isupati.netlify.app" class="project-link">View project <span>&rarr;</span></a>
       </article>
 
-     <article class="project-card">
-        <div class="project-card-top">
-          <h3>Portfolio Website</h3>
-          <p>A responsive portfolio website built using HTML and CSS.</p>
-          <div class="project-tags">
-            <span>HTML</span><span>CSS</span><span>JavaScript</span>
-          </div>
-        </div>
-        <a href="https://github.com/Jaywashie/Portfolio" class="project-link">View code<span>&rarr;</span></a>
-      </article>
-
-       <article class="project-card">
+  <article class="project-card">
         <div class="project-card-top">
           <h3>Patel</h3>
           <p>Simple betting/simulation web app</p>
@@ -176,8 +167,17 @@
         <a href="https://github.com/Jaywashie/Patel" class="project-link">View code <span>&rarr;</span></a>
       </article>
 
-
-     
+     <article class="project-card">
+        <div class="project-card-top">
+          <h3>Portfolio Website</h3>
+          <p>My work</p>
+          <div class="project-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+          </div>
+        </div>
+        <a href="https://github.com/Jaywashie/Portfolio" class="project-link">View code<span>&rarr;</span></a>
+      </article>
+  
 
     </div>
   </section>
@@ -187,7 +187,7 @@
     <p class="eyebrow">|&gt; contact</p>
     <h2 class="contact-heading">Let's build something.</h2>
     <p class="contact-text">Have a project in mind or just want to say hello? My inbox is open.</p>
-    <a href="mailto:jaywashie5735@email.com" class="btn btn-primary">jaywashie5735@email.com</a>
+    <a href="mailto:jaywashie5735@email.com" class="btn btn-primary">jaywashie5735@gmail.com</a>
   </section>
 
   <!-- Footer -->
