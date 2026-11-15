@@ -16,10 +16,10 @@
 }
 
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:80px}
+html{scroll-behavior:smooth;scroll-padding-top:80px;overflow-x:clip;max-width:100%}
 body{
   background:var(--bg);color:var(--text);font-family:var(--font-body);
-  line-height:1.7;transition:background .35s,color .35s;overflow-x:hidden;
+  line-height:1.7;transition:background .35s,color .35s;overflow-x:clip;max-width:100%;
 }
 a{color:inherit;text-decoration:none}
 :focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -31,9 +31,10 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- Navbar ---------- */
 header{position:sticky;top:0;z-index:100;
-  background:color-mix(in srgb,var(--bg) 78%,transparent);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
   border-bottom:1px solid var(--line)}
+header::before{content:"";position:absolute;inset:0;z-index:-1;
+  background:color-mix(in srgb,var(--bg) 78%,transparent);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .navbar{max-width:1100px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{font-family:var(--font-mono);font-weight:600;color:var(--accent)}
 .cursor-blink{animation:blink 1.1s steps(1) infinite}
@@ -67,6 +68,7 @@ header{position:sticky;top:0;z-index:100;
 h1,h2,h3{font-family:var(--font-display);line-height:1.1}
 
 /* ---------- Hero ---------- */
+.hero-grid>*,.about-grid>*{min-width:0}
 .hero-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
 h1{font-size:clamp(3rem,7vw,5.2rem);font-weight:700;letter-spacing:-.03em;margin-bottom:22px}
 .hero-text{font-size:1.15rem;color:var(--muted);max-width:30em;margin-bottom:18px}
@@ -127,10 +129,10 @@ h1{font-size:clamp(3rem,7vw,5.2rem);font-weight:700;letter-spacing:-.03em;margin
 footer{text-align:center;padding:36px 24px 100px;color:var(--muted);font-family:var(--font-mono);font-size:.82rem;border-top:1px solid var(--line)}
 
 /* ---------- WhatsApp chat ---------- */
-.wa{position:fixed;right:22px;bottom:22px;z-index:150;display:flex;flex-direction:column;align-items:flex-end;gap:14px}
-.wa-fab{width:58px;height:58px;border-radius:50%;border:0;background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .2s}
+.wa{position:fixed;right:max(16px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));z-index:2147483000;transform:translateZ(0);display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.wa-fab{flex:none;width:58px;height:58px;border-radius:50%;border:0;background:#25d366;color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 8px 24px rgba(37,211,102,.45);transition:transform .2s}
 .wa-fab:hover{transform:scale(1.08)}
-.wa-panel{width:min(340px,calc(100vw - 44px));background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;transform-origin:bottom right;animation:pop .25s ease-out}
+.wa-panel{width:min(340px,calc(100vw - 32px));max-height:calc(100dvh - 110px);overflow-y:auto;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);overflow:hidden;transform-origin:bottom right;animation:pop .25s ease-out}
 .wa-panel[hidden]{display:none}
 @keyframes pop{from{opacity:0;transform:scale(.9) translateY(10px)}}
 .wa-head{display:flex;align-items:center;gap:12px;padding:14px 16px;background:#128c7e;color:#fff}
@@ -156,6 +158,7 @@ footer{text-align:center;padding:36px 24px 100px;color:var(--muted);font-family:
   .nav-links{position:fixed;top:0;right:0;height:100vh;width:min(280px,80vw);background:var(--surface);flex-direction:column;padding:90px 32px;gap:22px;transform:translateX(100%);transition:transform .3s;z-index:120;border-left:1px solid var(--line);margin:0}
   .nav-links.open{transform:none}
   .nav-backdrop{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:110}
+  .nav-links{height:100dvh}
   .nav-backdrop.show{display:block}
   .nav-toggle{position:relative;z-index:130}
 }
